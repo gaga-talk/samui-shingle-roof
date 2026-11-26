@@ -69,6 +69,9 @@ nav .btn{min-height:42px;padding:0 18px;font-size:15px}
 .dots{display:flex;gap:6px;justify-content:center;margin-top:10px}
 .dots span{width:7px;height:7px;border-radius:50%;background:#3a3a3a;transition:.2s}.dots span.on{background:var(--hi);width:22px;border-radius:4px}
 .alt{background:#111}
+.err{margin:12px 0 0;padding:12px 14px;border-radius:12px;background:rgba(220,70,50,.14);border:1.5px solid #e0553c;color:#ffd9d1;font-size:14px;line-height:1.4}.err b{color:#ff8a73;margin-right:6px}.err i{display:block;font-style:normal;color:#f3b8aa;font-size:13px}
+.calc.low .area input{border-color:#e0553c;box-shadow:0 0 0 3px rgba(224,85,60,.25)}.calc.low .res{opacity:.35;pointer-events:none}
+
 .cta{display:inline-flex;align-items:center;gap:16px;padding:12px 12px 12px 22px;border-radius:18px;text-decoration:none;color:#121212;background:linear-gradient(135deg,#f3eee6,#e6dccd);box-shadow:0 14px 30px -14px rgba(200,100,43,.7),inset 0 0 0 1px rgba(255,255,255,.6);transition:transform .15s,box-shadow .15s}
 .cta:hover{transform:translateY(-2px);box-shadow:0 20px 36px -14px rgba(200,100,43,.85)}
 .cta:focus-visible{outline:3px solid #fff;outline-offset:3px}
@@ -267,6 +270,7 @@ footer{padding:28px max(5vw,18px);border-top:1px solid var(--line);color:var(--m
       <label for="m2">พื้นที่หลังคา · Roof area</label>
       <div class="area"><input id="m2" type="number" inputmode="numeric" min="100" max="5000" step="10" value="220"><span>ตร.ม. · m²</span></div>
       <input id="m2r" type="range" min="100" max="1500" step="10" value="220" aria-label="Roof area slider">
+      <p class="err" id="err" role="alert" hidden><b>ขั้นต่ำ 100 ตร.ม.</b> กรุณาใส่พื้นที่ 100 ตร.ม. ขึ้นไป<i>Minimum order is 100 m² — please enter 100 or more</i></p>
       <p class="note" style="font-size:13px">สัดส่วนจากงานจริง รวมเศษแล้ว · Ratios from a real job, waste included</p>
     </div>
     <div class="res" aria-live="polite">
@@ -420,7 +424,7 @@ function calc(a){a=Math.max(0,Math.min(5000,+a||0));let t=0;lines.innerHTML='';c
 R.forEach(([n,q,pr,u])=>{const c=a?Math.max(1,Math.ceil(a*q/220-1e-9)):0,v=c*pr;t+=v;const d=document.createElement('div');d.className='ln';const s1=document.createElement('span');s1.textContent=`${n} × ${c} ${u}`;const s2=document.createElement('span');s2.textContent=f(v)+' ฿';d.append(s1,s2);lines.append(d);txt.push(`${n}: ${c} ${u} = ${f(v)} ฿`)});
 tot.innerHTML='';tot.append(f(t));const em=document.createElement('em');em.textContent='฿';tot.append(em);
 perm.textContent=a?`≈ ${f(Math.round(t/a))} ฿/ตร.ม. · คำนวณจากหลังคาจริง 220 ตร.ม. ในสมุย · based on a real 220 m² Samui roof`:'';
-if(a&&a<100)perm.textContent='ขั้นต่ำ 100 ตร.ม. · Minimum order 100 m²';
+{const low=a>0&&a<100;document.getElementById('err').hidden=!low;document.getElementById('calc').classList.toggle('low',low)}
 txt.push(`Total ≈ ${f(t)} ฿ (excl. VAT)`);last=txt.join('\n')}
 m2.addEventListener('input',()=>{r.value=Math.min(1500,Math.max(100,+m2.value||100));calc(m2.value)});
 r.addEventListener('input',()=>{m2.value=r.value;calc(r.value)});
