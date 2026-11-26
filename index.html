@@ -69,6 +69,30 @@ nav .btn{min-height:42px;padding:0 18px;font-size:15px}
 .dots{display:flex;gap:6px;justify-content:center;margin-top:10px}
 .dots span{width:7px;height:7px;border-radius:50%;background:#3a3a3a;transition:.2s}.dots span.on{background:var(--hi);width:22px;border-radius:4px}
 .alt{background:#111}
+.cta{display:inline-flex;align-items:center;gap:16px;padding:12px 12px 12px 22px;border-radius:18px;text-decoration:none;color:#121212;background:linear-gradient(135deg,#f3eee6,#e6dccd);box-shadow:0 14px 30px -14px rgba(200,100,43,.7),inset 0 0 0 1px rgba(255,255,255,.6);transition:transform .15s,box-shadow .15s}
+.cta:hover{transform:translateY(-2px);box-shadow:0 20px 36px -14px rgba(200,100,43,.85)}
+.cta:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.cta-t b{display:block;font:700 18px/1.2 "Bai Jamjuree",sans-serif}.cta-t i{display:block;font:600 13px/1.3 Inter,sans-serif;font-style:normal;color:#8a4a22;margin-top:2px}
+.cta-a{display:grid;place-items:center;width:46px;height:46px;border-radius:14px;background:var(--acc);color:#fff;font:600 22px Inter,sans-serif;flex:none}
+/* calculator */
+.calc{margin-top:36px;padding:clamp(20px,3vw,34px);border-radius:24px;background:linear-gradient(160deg,#1f1c19,#161514);border:1px solid var(--line);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(20px,4vw,48px);align-items:center;scroll-margin-top:90px}
+.calc h3{font:600 clamp(22px,2.6vw,30px)/1.2 "Bai Jamjuree",sans-serif}
+.calc label{display:block;margin:18px 0 8px;color:var(--mute);font-size:14px}
+.area{display:flex;align-items:center;gap:10px}
+.area input[type=number]{width:130px;min-height:52px;padding:0 14px;border-radius:12px;border:1px solid #4a4642;background:#121212;color:var(--ink);font:700 24px Inter,sans-serif}
+.area input:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.area span{font-size:16px;color:var(--mute)}
+.calc input[type=range]{width:100%;margin-top:14px;accent-color:#c8642b}
+.res{display:grid;gap:8px}
+.res .ln{display:flex;justify-content:space-between;gap:10px;padding:8px 0;border-bottom:1px dashed #3a3632;font-size:15px}
+.res .ln span:last-child{white-space:nowrap;font-weight:600}
+.res .tot{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-top:6px}
+.res .tot b{font:800 clamp(34px,4.6vw,48px)/1 Inter,sans-serif}.res .tot b em{font-style:normal;color:var(--acc)}
+.res .sub{font-size:13px;color:var(--mute)}
+.res .acts{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+.res .acts .btn{min-height:46px;font-size:15px}
+@media(max-width:800px){.calc{grid-template-columns:minmax(0,1fr)}}
+
 .viz{touch-action:pan-y;cursor:grab;user-select:none}
 .vnav{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;border:0;background:rgba(18,18,18,.6);color:#fff;font:400 30px/1 Inter,sans-serif;cursor:pointer;z-index:2}
 .vp{left:10px}.vn{right:10px}.vnav:hover{background:rgba(18,18,18,.85)}
@@ -121,6 +145,15 @@ nav .btn{min-height:42px;padding:0 18px;font-size:15px}
 .cf .slide.on{transform:scale(1);opacity:1;filter:none;box-shadow:0 30px 60px -20px rgba(200,100,43,.35);z-index:2}
 .cf .slide img{height:auto;aspect-ratio:4/3;max-height:min(62vh,460px)}
 .cf .slide figcaption{padding:36px 14px 12px;font:500 15px/1.3 "Bai Jamjuree",sans-serif}.cf .slide figcaption i{font-size:12px}.cf .slide{cursor:zoom-in}
+/* oval gallery */
+.cf .track{gap:clamp(10px,2vw,22px);padding:16px calc(50% - clamp(60px,15vw,120px)) 10px}
+.cf .slide{flex:0 0 clamp(120px,30vw,240px);max-width:none;aspect-ratio:3/4;border-radius:50%;transform:scale(.82);opacity:.55;filter:saturate(.5);box-shadow:none;background:#1b1a19}
+.cf .slide img{width:100%;height:100%;max-height:none;aspect-ratio:auto;object-fit:cover}
+.cf .slide figcaption{display:none}
+.cf .slide.on{transform:scale(1);opacity:1;filter:none;box-shadow:0 0 0 2px rgba(243,238,230,.85),0 0 0 7px rgba(200,100,43,.55),0 30px 60px -20px rgba(0,0,0,.9)}
+.cap{text-align:center;margin-top:16px;min-height:62px}
+.cap .stage{margin-bottom:6px}.cap b{display:block;font:600 19px/1.3 "Bai Jamjuree",sans-serif}.cap i{display:block;font-style:normal;font-size:14px;color:var(--en)}
+.cap small{display:block;margin-top:4px;font-size:12px;color:var(--mute)}
 .stepbar{display:flex;gap:6px;justify-content:center;margin-top:14px}
 .stepbar span{height:4px;flex:0 1 46px;border-radius:2px;background:#2e2e2e;overflow:hidden;position:relative;cursor:pointer}
 .stepbar span.done{background:#8a8580}
@@ -192,7 +225,7 @@ footer{padding:28px max(5vw,18px);border-top:1px solid var(--line);color:var(--m
 <nav>
   <a class="logo" href="#" aria-label="Samui Shingle Roof"><svg viewBox="58 86 188 82" width="64" height="28" aria-hidden="true"><g fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M62 120 L150 92 L150 104" stroke="#c8642b" stroke-width="10"/><path d="M128 108 L240 132" stroke="#c8642b" stroke-width="10"/><path d="M76 118 V164 H226 V132" stroke="#f3eee6" stroke-width="7"/><path d="M150 104 V164" stroke="#f3eee6" stroke-width="7"/></g></svg><span>SAMUI<b>SHINGLE · ROOF</b></span></a>
   <div class="tabs" id="tabs">
-    <a href="#colors">สี<i>Colours</i></a><a href="#work">ผลงาน<i>Work</i></a><a href="#system">ระบบหลังคา<i>System</i></a><a href="#prices">ราคา<i>Prices</i></a><a href="#contact">ติดต่อ<i>Contact</i></a>
+    <a href="#colors">สี<i>Colours</i></a><a href="#work">ผลงาน<i>Work</i></a><a href="#system">ระบบหลังคา<i>System</i></a><a href="#calc">ราคา<i>Prices</i></a><a href="#contact">ติดต่อ<i>Contact</i></a>
   </div>
 </nav>
 
@@ -217,7 +250,7 @@ footer{padding:28px max(5vw,18px);border-top:1px solid var(--line);color:var(--m
       <div class="perk"><span class="ck">✓</span> ขั้นต่ำ 100 ตร.ม.<i>Min. 100 m²</i></div>
     </div>
     <div class="match"><b>เจอถูกกว่า คืนส่วนต่าง!</b><small>Found it cheaper on Koh Samui? We refund the difference · สินค้าและจำนวนเดียวกัน</small></div>
-    <div class="row"><a class="btn" href="https://line.me/ti/p/hHdg4msBhp">ขอใบเสนอราคาทาง LINE · Get a quote →</a></div>
+    <div class="row"><a class="cta" href="#calc"><span class="cta-t"><b>คำนวณราคาหลังคาของคุณ</b><i>Get your roof price in 10 seconds</i></span><span class="cta-a" aria-hidden="true">→</span></a></div>
     </div>
   </div>
 </header>
@@ -234,6 +267,7 @@ footer{padding:28px max(5vw,18px);border-top:1px solid var(--line);color:var(--m
       <div class="arrows"><button id="prev" aria-label="Previous photo">←</button><button id="next" aria-label="Next photo">→</button></div>
     </div>
     <div class="cf"><div class="track" id="track" tabindex="0" aria-label="Roof photo gallery"></div></div>
+    <div class="cap" id="cap" aria-live="polite"></div>
     <div class="stepbar" id="dots"></div>
   </div>
 </section>
@@ -269,6 +303,21 @@ footer{padding:28px max(5vw,18px);border-top:1px solid var(--line);color:var(--m
         <tr><td>ลูกแม็กสแตนเลส 304<small>Stainless staples, box of 5,000</small></td><td>400 ฿ / กล่อง</td></tr>
       </tbody>
     </table>
+  </div>
+  <div class="wrap calc" id="calc">
+    <div>
+      <h3>คำนวณราคาหลังคา<span class="en">Roof price calculator</span></h3>
+      <label for="m2">พื้นที่หลังคา · Roof area</label>
+      <div class="area"><input id="m2" type="number" inputmode="numeric" min="100" max="5000" step="10" value="200"><span>ตร.ม. · m²</span></div>
+      <input id="m2r" type="range" min="100" max="1500" step="10" value="200" aria-label="Roof area slider">
+      <p class="note" style="font-size:13px">รวมเผื่อเศษ 5–10% · Includes 5–10% waste allowance</p>
+    </div>
+    <div class="res" aria-live="polite">
+      <div id="lines"></div>
+      <div class="tot"><span class="sub">ประมาณการ · Estimate<br>ไม่รวม VAT · excl. VAT</span><b id="tot"></b></div>
+      <div class="sub" id="perm"></div>
+      <div class="acts"><a class="btn" href="https://line.me/ti/p/hHdg4msBhp">ขอใบเสนอราคาจริง · Get exact quote</a><button class="btn ghost" id="cpy" type="button">คัดลอก · Copy</button></div>
+    </div>
   </div>
 </section>
 
@@ -324,7 +373,7 @@ footer{padding:28px max(5vw,18px);border-top:1px solid var(--line);color:var(--m
 {
 const photos=[
  ['frame','โครงหลังคาเหล็ก พร้อมปูไม้ OSB','Steel frame, OSB boards going on','โครง · Frame'],
- ['r9','หลังคาชิงเกิ้ลเสร็จสมบูรณ์','Finished shingle roof','งานเสร็จ · Done'],
+ ['r9','ปูชิงเกิ้ลตามแนวขอบหลังคา','Shingles going on along the roof edge','ชิงเกิ้ล · Shingles'],
  ['r6','ม้วนเมมเบรนทีละแถว','Rolling out the membrane','เมมเบรน · Membrane'],
  ['r10','เมมเบรนเต็มพื้นที่','Large roof, fully membraned','เมมเบรน · Membrane'],
  ['r7','ปูชิงเกิ้ลต่อจากเมมเบรน','Shingles going on over the membrane','ชิงเกิ้ล · Shingles'],
@@ -337,7 +386,7 @@ track.innerHTML=photos.map(p=>`<figure class="slide"><img src="img/${p[0]}.jpg" 
 dots.innerHTML=photos.map(()=>'<span></span>').join('');
 const slides=[...track.children],ds=[...dots.children];let cur=-1,timer=null,paused=false;
 const rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
-function mark(i){if(i===cur)return;cur=i;slides.forEach((s,k)=>s.classList.toggle('on',k===i));ds.forEach((d,k)=>{d.classList.toggle('done',k<i);d.classList.remove('on');if(k===i){void d.offsetWidth;d.classList.add('on')}})}
+function mark(i){if(i===cur)return;cur=i;{const c=document.getElementById('cap');c.innerHTML='';const st=document.createElement('span');st.className='stage';st.textContent=photos[i][3];const b=document.createElement('b');b.textContent=photos[i][1];const it=document.createElement('i');it.textContent=photos[i][2];const sm=document.createElement('small');sm.textContent='แตะเพื่อขยาย · Tap to enlarge';c.append(st,b,it,sm)}slides.forEach((s,k)=>s.classList.toggle('on',k===i));ds.forEach((d,k)=>{d.classList.toggle('done',k<i);d.classList.remove('on');if(k===i){void d.offsetWidth;d.classList.add('on')}})}
 function go(i){i=(i+slides.length)%slides.length;const s=slides[i];track.scrollTo({left:s.offsetLeft-(track.clientWidth-s.clientWidth)/2,behavior:rm?'auto':'smooth'});mark(i)}
 function auto(){clearInterval(timer);if(!rm&&!paused)timer=setInterval(()=>go(cur+1),4500)}
 document.getElementById('prev').onclick=()=>{go(cur-1);auto()};
@@ -357,9 +406,24 @@ let sx=null;lbimg.addEventListener('touchstart',e=>{sx=e.touches[0].clientX},{pa
 slides.forEach((s,k)=>s.onclick=()=>{if(k!==cur){go(k);auto()}else lbOpen(k)});
 new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)auto();else clearInterval(timer)})}).observe(track);
 requestAnimationFrame(()=>go(0));
+{const P={sh:[769,2.32,1.05],osb:[440,2.977,1.05],mem:[2800,20,1.1],stp:[400,150,1]};
+const m2=document.getElementById('m2'),r=document.getElementById('m2r'),lines=document.getElementById('lines'),tot=document.getElementById('tot'),perm=document.getElementById('perm');let last='';
+const f=n=>n.toLocaleString('en-US');
+function calc(a){a=Math.max(0,Math.min(5000,+a||0));const q=k=>Math.ceil(a*P[k][2]/P[k][1]);
+const rows=[['ชิงเกิ้ลรูฟ · Shingles','sh','แพ็ค'],['ไม้ OSB 9 มม.','osb','แผ่น'],['เมมเบรน · Membrane','mem','ม้วน'],['ลูกแม็ก · Staples','stp','กล่อง']];
+let t=0;lines.innerHTML='';const txt=[`Samui Shingle Roof — ${a} m²`];
+rows.forEach(([n,k,u])=>{const c=a?q(k):0,v=c*P[k][0];t+=v;const d=document.createElement('div');d.className='ln';const s1=document.createElement('span');s1.textContent=`${n} × ${c} ${u}`;const s2=document.createElement('span');s2.textContent=f(v)+' ฿';d.append(s1,s2);lines.append(d);txt.push(`${n}: ${c} ${u} = ${f(v)} ฿`)});
+tot.innerHTML='';tot.append(f(t));const em=document.createElement('em');em.textContent='฿';tot.append(em);
+perm.textContent=a?`≈ ${f(Math.round(t/a))} ฿/ตร.ม. · + สตาร์ทเตอร์และเหล็กฉากตามความยาวชายคา · starter & drip edge by eave length`:'';
+if(a&&a<100)perm.textContent='ขั้นต่ำ 100 ตร.ม. · Minimum order 100 m²';
+txt.push(`Total ≈ ${f(t)} ฿ (excl. VAT)`);last=txt.join('\n')}
+m2.addEventListener('input',()=>{r.value=Math.min(1500,Math.max(100,+m2.value||100));calc(m2.value)});
+r.addEventListener('input',()=>{m2.value=r.value;calc(r.value)});
+document.getElementById('cpy').addEventListener('click',async e=>{try{await navigator.clipboard.writeText(last);e.target.textContent='คัดลอกแล้ว ✓ Copied'}catch(_){e.target.textContent='—'}});
+calc(200)}
 // mark English text
 {const re=/[A-Za-z][A-Za-z0-9\s,.'’&()\/+:!?²%—–-]*[A-Za-z0-9.²)!?]|[A-Za-z]/g;const skip=new Set(['SCRIPT','STYLE','svg','SVG','TEXT']);
-const w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,{acceptNode:n=>{let p=n.parentElement;if(!p||p.closest('.logo,svg,script,style,.lat,.price,#lb,.vizname b,.btn,.stage'))return NodeFilter.FILTER_REJECT;return /[A-Za-z]/.test(n.nodeValue)&&/[฀-๿]/.test((p.closest('h1,h2,h3,li,p,td,a,figcaption,div,button,span')||p).textContent)?NodeFilter.FILTER_ACCEPT:NodeFilter.FILTER_REJECT}});
+const w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,{acceptNode:n=>{let p=n.parentElement;if(!p||p.closest('.logo,svg,script,style,.lat,.price,#lb,.vizname b,.btn,.stage,.cta'))return NodeFilter.FILTER_REJECT;return /[A-Za-z]/.test(n.nodeValue)&&/[฀-๿]/.test((p.closest('h1,h2,h3,li,p,td,a,figcaption,div,button,span')||p).textContent)?NodeFilter.FILTER_ACCEPT:NodeFilter.FILTER_REJECT}});
 const ns=[];while(w.nextNode())ns.push(w.currentNode);
 ns.forEach(n=>{const t=n.nodeValue;re.lastIndex=0;if(!re.test(t))return;re.lastIndex=0;const f=document.createDocumentFragment();let last=0,m;while((m=re.exec(t))){f.append(t.slice(last,m.index));const sp=document.createElement('span');sp.className='lat';sp.textContent=m[0];f.append(sp);last=m.index+m[0].length}f.append(t.slice(last));n.replaceWith(f)});}
 {const oc=document.getElementById('ordercol'),ch=document.getElementById('chosen');oc.addEventListener('click',()=>{const n=document.getElementById('cname').textContent,t=document.getElementById('cth').textContent;ch.hidden=false;ch.innerHTML='';ch.append('สีที่เลือก · Your colour: ');const b=document.createElement('b');b.textContent=n+' ('+t+')';ch.append(b)})}
