@@ -308,9 +308,9 @@ footer{padding:28px max(5vw,18px);border-top:1px solid var(--line);color:var(--m
     <div>
       <h3>คำนวณราคาหลังคา<span class="en">Roof price calculator</span></h3>
       <label for="m2">พื้นที่หลังคา · Roof area</label>
-      <div class="area"><input id="m2" type="number" inputmode="numeric" min="100" max="5000" step="10" value="200"><span>ตร.ม. · m²</span></div>
-      <input id="m2r" type="range" min="100" max="1500" step="10" value="200" aria-label="Roof area slider">
-      <p class="note" style="font-size:13px">รวมเผื่อเศษ 5–10% · Includes 5–10% waste allowance</p>
+      <div class="area"><input id="m2" type="number" inputmode="numeric" min="100" max="5000" step="10" value="220"><span>ตร.ม. · m²</span></div>
+      <input id="m2r" type="range" min="100" max="1500" step="10" value="220" aria-label="Roof area slider">
+      <p class="note" style="font-size:13px">สัดส่วนจากงานจริง รวมเศษแล้ว · Ratios from a real job, waste included</p>
     </div>
     <div class="res" aria-live="polite">
       <div id="lines"></div>
@@ -406,21 +406,19 @@ let sx=null;lbimg.addEventListener('touchstart',e=>{sx=e.touches[0].clientX},{pa
 slides.forEach((s,k)=>s.onclick=()=>{if(k!==cur){go(k);auto()}else lbOpen(k)});
 new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)auto();else clearInterval(timer)})}).observe(track);
 requestAnimationFrame(()=>go(0));
-{const P={sh:[769,2.32,1.05],osb:[440,2.977,1.05],mem:[2800,20,1.1],stp:[400,150,1]};
+{const R=[['ชิงเกิ้ลรูฟ · Shingles',94,769,'แพ็ค'],['ไม้ OSB 9 มม.',73,440,'แผ่น'],['เมมเบรน · Membrane',10,2800,'ม้วน'],['สตาร์ทเตอร์ · Starter',7,620,'แพ็ค'],['เหล็กฉาก · Drip edge 3 m',21,160,'เส้น'],['ลูกแม็ก · Staples (5,000)',2,400,'กล่อง']];
 const m2=document.getElementById('m2'),r=document.getElementById('m2r'),lines=document.getElementById('lines'),tot=document.getElementById('tot'),perm=document.getElementById('perm');let last='';
 const f=n=>n.toLocaleString('en-US');
-function calc(a){a=Math.max(0,Math.min(5000,+a||0));const q=k=>Math.ceil(a*P[k][2]/P[k][1]);
-const rows=[['ชิงเกิ้ลรูฟ · Shingles','sh','แพ็ค'],['ไม้ OSB 9 มม.','osb','แผ่น'],['เมมเบรน · Membrane','mem','ม้วน'],['ลูกแม็ก · Staples','stp','กล่อง']];
-let t=0;lines.innerHTML='';const txt=[`Samui Shingle Roof — ${a} m²`];
-rows.forEach(([n,k,u])=>{const c=a?q(k):0,v=c*P[k][0];t+=v;const d=document.createElement('div');d.className='ln';const s1=document.createElement('span');s1.textContent=`${n} × ${c} ${u}`;const s2=document.createElement('span');s2.textContent=f(v)+' ฿';d.append(s1,s2);lines.append(d);txt.push(`${n}: ${c} ${u} = ${f(v)} ฿`)});
+function calc(a){a=Math.max(0,Math.min(5000,+a||0));let t=0;lines.innerHTML='';const txt=[`Samui Shingle Roof — ${a} m²`];
+R.forEach(([n,q,pr,u])=>{const c=a?Math.max(1,Math.ceil(a*q/220-1e-9)):0,v=c*pr;t+=v;const d=document.createElement('div');d.className='ln';const s1=document.createElement('span');s1.textContent=`${n} × ${c} ${u}`;const s2=document.createElement('span');s2.textContent=f(v)+' ฿';d.append(s1,s2);lines.append(d);txt.push(`${n}: ${c} ${u} = ${f(v)} ฿`)});
 tot.innerHTML='';tot.append(f(t));const em=document.createElement('em');em.textContent='฿';tot.append(em);
-perm.textContent=a?`≈ ${f(Math.round(t/a))} ฿/ตร.ม. · + สตาร์ทเตอร์และเหล็กฉากตามความยาวชายคา · starter & drip edge by eave length`:'';
+perm.textContent=a?`≈ ${f(Math.round(t/a))} ฿/ตร.ม. · คำนวณจากหลังคาจริง 220 ตร.ม. ในสมุย · based on a real 220 m² Samui roof`:'';
 if(a&&a<100)perm.textContent='ขั้นต่ำ 100 ตร.ม. · Minimum order 100 m²';
 txt.push(`Total ≈ ${f(t)} ฿ (excl. VAT)`);last=txt.join('\n')}
 m2.addEventListener('input',()=>{r.value=Math.min(1500,Math.max(100,+m2.value||100));calc(m2.value)});
 r.addEventListener('input',()=>{m2.value=r.value;calc(r.value)});
 document.getElementById('cpy').addEventListener('click',async e=>{try{await navigator.clipboard.writeText(last);e.target.textContent='คัดลอกแล้ว ✓ Copied'}catch(_){e.target.textContent='—'}});
-calc(200)}
+calc(220);m2.value=220;r.value=220}
 // mark English text
 {const re=/[A-Za-z][A-Za-z0-9\s,.'’&()\/+:!?²%—–-]*[A-Za-z0-9.²)!?]|[A-Za-z]/g;const skip=new Set(['SCRIPT','STYLE','svg','SVG','TEXT']);
 const w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,{acceptNode:n=>{let p=n.parentElement;if(!p||p.closest('.logo,svg,script,style,.lat,.price,#lb,.vizname b,.btn,.stage,.cta'))return NodeFilter.FILTER_REJECT;return /[A-Za-z]/.test(n.nodeValue)&&/[฀-๿]/.test((p.closest('h1,h2,h3,li,p,td,a,figcaption,div,button,span')||p).textContent)?NodeFilter.FILTER_ACCEPT:NodeFilter.FILTER_REJECT}});
