@@ -58,6 +58,7 @@ nav .btn{min-height:42px;padding:0 18px;font-size:15px}
 .dots{display:flex;gap:6px;justify-content:center;margin-top:10px}
 .dots span{width:7px;height:7px;border-radius:50%;background:#3a3a3a;transition:.2s}.dots span.on{background:var(--hi);width:22px;border-radius:4px}
 .alt{background:#111}
+.chosen{margin:0;padding:10px 16px;border-radius:12px;background:#1f1d1b;border:1px solid var(--line);font-weight:600}.chosen b{color:var(--acc)}
 .lb{position:fixed;inset:0;z-index:50;background:rgba(0,0,0,.94);display:none;align-items:center;justify-content:center;padding:16px}
 .lb.open{display:flex}
 .lb img{max-width:100%;max-height:100%;object-fit:contain;border-radius:10px;touch-action:pan-y}
@@ -186,7 +187,7 @@ footer{padding:28px max(5vw,18px);border-top:1px solid var(--line);color:var(--m
       <div class="vizname"><b id="cname">Rock Grey</b><span id="cth">สีเทา</span></div></div>
     <p class="hint"><span class="ck">●</span> แตะสีเพื่อดูภาพจำลองบนหลังคา · Tap a colour to preview</p>
     <div class="dots9" id="dots9" role="radiogroup" aria-label="Roof colour"></div>
-    <div class="vizfoot"><span>ชิงเกิ้ล 2 ชั้น · 2.32 ตร.ม./ห่อ · ภาพจำลอง สีจริงอาจต่างเล็กน้อย<br>2-layer shingles · 2.32 m² per pack · Preview only, actual colour may vary</span><a class="btn ghost" href="https://line.me/ti/p/-pnsRf7mvr">สั่งสีนี้ · Order this colour</a></div>
+    <div class="vizfoot"><span>ชิงเกิ้ล 2 ชั้น · 2.32 ตร.ม./ห่อ · ภาพจำลอง สีจริงอาจต่างเล็กน้อย<br>2-layer shingles · 2.32 m² per pack · Preview only, actual colour may vary</span><a class="btn ghost" href="#contact" id="ordercol">สั่งสีนี้ · Order this colour</a></div>
     </div>
     <div class="hb">
     <div class="perks">
@@ -285,6 +286,7 @@ footer{padding:28px max(5vw,18px);border-top:1px solid var(--line);color:var(--m
         <div class="qcol"><a href="https://line.me/ti/p/-pnsRf7mvr" aria-label="Add us on LINE"><img class="qrimg" src="img/line-qr.png" alt="LINE QR code" width="200" height="200"></a><a class="btn line" href="https://line.me/ti/p/-pnsRf7mvr">LINE</a></div>
         <div class="qcol"><a href="https://wa.me/message/L4ZFOTGJVSHLE1" aria-label="Chat on WhatsApp"><img class="qrimg" src="img/wa-qr.png" alt="WhatsApp QR code" width="200" height="200"></a><a class="btn wa" href="https://wa.me/message/L4ZFOTGJVSHLE1">WhatsApp</a></div>
       </div>
+      <p class="chosen" id="chosen" hidden></p>
       <p class="note" style="margin:0">สแกน QR หรือกดปุ่ม · Scan or tap</p>
       <p><strong>โทร / Tel:</strong> <a href="tel:+66621190553">062-119-0553</a></p>
       <p class="note">เกาะสมุย สุราษฎร์ธานี · Koh Samui, Surat Thani</p>
@@ -339,6 +341,7 @@ requestAnimationFrame(()=>go(0));
 const w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,{acceptNode:n=>{let p=n.parentElement;if(!p||p.closest('.logo,svg,script,style,.lat,.price,#lb,.vizname b,.btn,.stage'))return NodeFilter.FILTER_REJECT;return /[A-Za-z]/.test(n.nodeValue)&&/[฀-๿]/.test((p.closest('h1,h2,h3,li,p,td,a,figcaption,div,button,span')||p).textContent)?NodeFilter.FILTER_ACCEPT:NodeFilter.FILTER_REJECT}});
 const ns=[];while(w.nextNode())ns.push(w.currentNode);
 ns.forEach(n=>{const t=n.nodeValue;re.lastIndex=0;if(!re.test(t))return;re.lastIndex=0;const f=document.createDocumentFragment();let last=0,m;while((m=re.exec(t))){f.append(t.slice(last,m.index));const sp=document.createElement('span');sp.className='lat';sp.textContent=m[0];f.append(sp);last=m.index+m[0].length}f.append(t.slice(last));n.replaceWith(f)});}
+{const oc=document.getElementById('ordercol'),ch=document.getElementById('chosen');oc.addEventListener('click',()=>{const n=document.getElementById('cname').textContent,t=document.getElementById('cth').textContent;ch.hidden=false;ch.innerHTML='';ch.append('สีที่เลือก · Your colour: ');const b=document.createElement('b');b.textContent=n+' ('+t+')';ch.append(b)})}
 // tabs highlight
 const tabs=[...document.querySelectorAll('#tabs a')];
 const secObs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){tabs.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id))}})},{rootMargin:'-40% 0px -55% 0px'});
