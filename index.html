@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Samui Shingle Roof</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@500;600;700&family=IBM+Plex+Sans+Thai:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* VOICE: confident trade supplier, short and direct, Thai first then English
+   IDEA: a contractor's job board — real Samui roofs, real numbers
+   PICTURE: illustrated Samui sunset scene with a shingle-roof villa under the headline, then a swipe gallery of real photos
+   COLOUR and TYPE: charcoal ground, warm off-white text, copper accent; Bai Jamjuree + IBM Plex Sans Thai
+   LAYOUT: hero photo with price, swipe gallery, price table, 3 steps, projects, contact */
+:root{color-scheme:dark;--bg:#121212;--panel:#1b1a19;--line:#2e2b28;--ink:#f3eee6;--mute:#a8a29a;--acc:#c8642b;--acc2:#db7a42;--hi:#f3eee6;--en:#e2b48c;--hi2:#d8d2c8}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 "IBM Plex Sans Thai",system-ui,sans-serif;overflow-x:clip}
+h1,h2,h3{font-family:"Bai Jamjuree",sans-serif;line-height:1.08;margin:0;text-wrap:balance}
+h2{font-size:clamp(28px,4vw,44px);font-weight:600;letter-spacing:-.01em}
+.en{display:block;color:var(--mute);font-family:"IBM Plex Sans Thai",sans-serif;font-weight:400;font-size:.55em;margin-top:6px;line-height:1.3}
+.band{padding:clamp(48px,7vw,96px) max(5vw,18px)}
+.wrap{max-width:1240px;margin:0 auto}
+a{color:inherit}
+.btn{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 24px;border-radius:12px;background:var(--hi);color:#121212;font:600 17px "Bai Jamjuree",sans-serif;text-decoration:none;white-space:nowrap}
+.btn:hover{background:var(--hi2);transform:translateY(-1px)}.btn{transition:.15s;box-shadow:0 8px 24px -10px rgba(0,0,0,.7)}.btn.ghost{box-shadow:none}.btn.ghost:hover{background:#1d1d1d;border-color:var(--acc)}.btn:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.btn.ghost{background:rgba(10,10,10,.75);color:var(--ink);border:1.5px solid #555}
+nav{position:sticky;top:0;z-index:5;display:flex;justify-content:space-between;align-items:center;gap:12px 24px;flex-wrap:wrap;padding:12px max(5vw,18px);background:rgba(10,10,10,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}.logo span{font:700 20px/1 "Bai Jamjuree",sans-serif;letter-spacing:.06em}.logo b{display:block;font-weight:500;font-size:11px;letter-spacing:.28em;color:var(--acc);margin-top:4px}
+nav .btn{min-height:42px;padding:0 18px;font-size:15px}
+.hero{position:relative;overflow:hidden;background:#121212}
+.scene{position:absolute;left:0;right:0;bottom:0;width:100%;height:44%}
+.hero .wrap{position:relative;z-index:1;padding:clamp(28px,5vw,56px) max(5vw,18px) 0}
+.hero .row{display:flex;gap:12px;flex-wrap:wrap}
+.hero{background:#121212}
+.hero h1{font-size:clamp(34px,5.6vw,64px);font-weight:700;max-width:16ch}
+.hero .en{font-size:clamp(17px,1.8vw,22px);color:#d6d6d2;max-width:40ch}
+.price{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin:26px 0 22px}
+.price strong{font:700 clamp(52px,8vw,92px)/1 "Bai Jamjuree",sans-serif;color:var(--ink)}.price strong em{font-style:normal;color:var(--acc)}
+.price span{font:500 19px/1.3 "Bai Jamjuree",sans-serif}.price small{display:block;color:var(--mute);font:400 14px "IBM Plex Sans Thai",sans-serif}
+.match{border:1px solid var(--line);border-radius:14px;padding:12px 16px;margin:-8px 0 26px;max-width:560px;background:rgba(22,16,12,.9)}.match b::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--acc);margin-right:8px;vertical-align:middle}.match b{color:var(--ink);font:700 19px "Bai Jamjuree",sans-serif;margin-right:6px}.match small{display:block;color:var(--mute);font-size:13px;margin-top:4px}
+.ck{color:var(--acc)}
+.perks{display:flex;flex-wrap:wrap;gap:6px 22px;margin-bottom:22px}
+.perk{padding:0;font-weight:600;line-height:1.3;font-size:15px}
+.perk i{display:block;font-style:normal;font-weight:400;font-size:13px;color:#cfcfcb}
+.gal-head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:24px}
+.arrows{display:flex;gap:10px}
+.arrows button{width:48px;height:48px;border-radius:50%;border:1.5px solid #444;background:var(--panel);color:var(--ink);font-size:22px;cursor:pointer}
+.arrows button:hover{border-color:var(--acc);color:var(--acc)}.arrows button:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+.track{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:14px;scrollbar-width:thin;scrollbar-color:#444 transparent;overscroll-behavior-x:contain}
+.slide{flex:0 0 min(78vw,520px);scroll-snap-align:start;margin:0;border-radius:18px;overflow:hidden;background:var(--panel);position:relative}
+.slide.tall{flex-basis:min(62vw,340px)}
+.slide img{display:block;width:100%;height:clamp(340px,52vw,480px);object-fit:cover}
+.slide figcaption{position:absolute;left:0;right:0;bottom:0;padding:40px 16px 14px;background:linear-gradient(transparent,rgba(0,0,0,.85));font-weight:600;line-height:1.3}
+.slide figcaption i{display:block;font-style:normal;font-weight:400;font-size:13px;color:#cfcfcb}
+.count{color:var(--mute);font-size:14px;margin-top:6px}
+.dots{display:flex;gap:6px;justify-content:center;margin-top:10px}
+.dots span{width:7px;height:7px;border-radius:50%;background:#3a3a3a;transition:.2s}.dots span.on{background:var(--hi);width:22px;border-radius:4px}
+.alt{background:#111}
+.lb{position:fixed;inset:0;z-index:50;background:rgba(0,0,0,.94);display:none;align-items:center;justify-content:center;padding:16px}
+.lb.open{display:flex}
+.lb img{max-width:100%;max-height:100%;object-fit:contain;border-radius:10px;touch-action:pan-y}
+.lb button{position:absolute;width:48px;height:48px;border-radius:50%;border:1px solid #555;background:rgba(20,20,20,.8);color:#fff;font-size:22px;cursor:pointer}
+.lb .x{top:14px;right:14px}.lb .lp{left:12px;top:50%;transform:translateY(-50%)}.lb .ln{right:12px;top:50%;transform:translateY(-50%)}
+.lat,.en,.perk i,.ben i,.layers li i,figcaption i,.step p,.instline span,.tabs a i,.match small{color:var(--en)!important}.tabs a.on i,.tabs a.on .lat{color:#8a4a22!important}.lat{color:var(--en)}.btn .lat{color:#8a4a22}.btn.line .lat{color:#eafff1}.btn.ghost .lat,.en,.perk i,.ben i,.layers li i,figcaption i,.step p,.instline span,.tabs a i,.match small{color:var(--en)!important}.lat{color:var(--en)}.tabs a.on .lat{color:#8a4a22}
+
+.linefab{position:fixed;right:16px;bottom:16px;z-index:20;width:60px;height:60px;border-radius:16px;box-shadow:0 10px 26px -6px rgba(0,0,0,.7);transition:transform .15s}.linefab img{display:block;width:100%;height:100%;border-radius:16px}.linefab:hover{transform:scale(1.07)}.linefab:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.hgrid{display:grid;grid-template-rows:auto 1fr;grid-template-columns:minmax(0,.9fr) minmax(0,1.25fr);grid-template-areas:"a v" "b v";column-gap:clamp(24px,4vw,56px);align-items:start;max-width:1320px}
+.ha{grid-area:a}.hv{grid-area:v;scroll-margin-top:90px}.hb{grid-area:b}
+.hero h1{font-size:clamp(32px,4.4vw,56px)}
+.hv .viz{margin-top:0}
+.hero{padding-bottom:clamp(36px,5vw,64px)}
+@media(max-width:900px){.hgrid{grid-template-columns:minmax(0,1fr);grid-template-areas:"a" "v" "b"}.price{margin:18px 0 18px}.hb{margin-top:18px}}
+
+.viz{position:relative;margin:24px auto 0;max-width:1000px;border-radius:20px;overflow:hidden;aspect-ratio:1600/1073;background:#1b1a19;box-shadow:0 30px 60px -30px rgba(0,0,0,.8)}
+.viz img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .45s}
+.viz #cfgB{opacity:0}
+.vizname{position:absolute;left:14px;top:14px;padding:8px 14px;border-radius:12px;background:rgba(18,18,18,.78);backdrop-filter:blur(6px);line-height:1.2}
+.vizname b{display:block;font:600 20px "Bai Jamjuree",sans-serif}.vizname span{font-size:13px;color:var(--mute)}
+.hint{text-align:center;color:var(--mute);margin:18px 0 6px;font-size:15px}
+.dots9{display:flex;gap:6px;overflow-x:auto;padding:12px 4px 16px;justify-content:center;scrollbar-width:none}.dots9::-webkit-scrollbar{display:none}
+@media(max-width:700px){.dots9{justify-content:flex-start;margin-inline:calc(-1*max(5vw,18px));padding-inline:max(5vw,18px)}}
+.sw{flex:none;display:grid;justify-items:center;gap:6px;background:none;border:0;color:var(--mute);font:500 12px "IBM Plex Sans Thai",sans-serif;cursor:pointer;padding:0;width:64px}
+.sw i{width:48px;height:48px;border-radius:50%;background-size:cover;background-position:center;border:2px solid rgba(255,255,255,.15);transition:transform .25s,box-shadow .25s}
+.sw:hover i{transform:translateY(-3px)}
+.sw[aria-checked=true]{color:var(--ink)}.sw[aria-checked=true] i{transform:scale(1.18);box-shadow:0 0 0 3px #121212,0 0 0 5px var(--acc)}
+.sw:focus-visible{outline:none}.sw:focus-visible i{box-shadow:0 0 0 3px #121212,0 0 0 5px #fff}
+.vizfoot{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-top:4px;color:var(--mute);font-size:12px}
+
+.tabs{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}.tabs::-webkit-scrollbar{display:none}
+.tabs a{flex:none;display:grid;justify-items:center;padding:6px 14px;border-radius:12px;text-decoration:none;font:500 15px/1.2 "Bai Jamjuree",sans-serif;color:#ddd;transition:background .2s,color .2s}
+.tabs a i{font:400 11px "IBM Plex Sans Thai",sans-serif;font-style:normal;color:var(--mute)}
+.tabs a:hover{background:#1c1c1c}.tabs a.on{background:var(--hi);color:#121212}.tabs a.on i{color:#555}
+@media(max-width:700px){.tabs{order:3;width:calc(100% + 2*max(5vw,18px));margin-inline:calc(-1*max(5vw,18px));padding-inline:max(5vw,18px)}}
+.cf{position:relative;margin-inline:calc(-1*max(5vw,18px))}
+.cf .track{gap:0;padding:10px 14vw 18px;scrollbar-width:none;scroll-snap-type:x mandatory}
+.cf .track::-webkit-scrollbar{display:none}
+.cf .slide{flex:0 0 72vw;max-width:600px;scroll-snap-align:center;transition:transform .35s,opacity .35s,filter .35s;transform:scale(.84);opacity:.45;filter:saturate(.4)}
+.cf .slide.on{transform:scale(1);opacity:1;filter:none;box-shadow:0 30px 60px -20px rgba(200,100,43,.35);z-index:2}
+.cf .slide img{height:auto;aspect-ratio:4/3;max-height:min(62vh,460px)}
+.cf .slide figcaption{padding:36px 14px 12px;font:500 15px/1.3 "Bai Jamjuree",sans-serif}.cf .slide figcaption i{font-size:12px}.cf .slide{cursor:zoom-in}
+.stepbar{display:flex;gap:6px;justify-content:center;margin-top:14px}
+.stepbar span{height:4px;flex:0 1 46px;border-radius:2px;background:#2e2e2e;overflow:hidden;position:relative;cursor:pointer}
+.stepbar span.done{background:#8a8580}
+.stepbar span.on::after{content:"";position:absolute;inset:0;background:var(--hi);transform-origin:left;animation:fill 4.5s linear forwards}
+@keyframes fill{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.stage{display:inline-block;margin-bottom:4px;padding:2px 8px;font-size:11px!important;border-radius:999px;background:var(--hi);color:#121212;font:600 12px "Bai Jamjuree",sans-serif}
+@media(prefers-reduced-motion:reduce){.stepbar span.on::after{animation:none;transform:none}.cf .slide{transition:none}}
+
+.layers{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:clamp(20px,4vw,56px);align-items:center;margin-top:28px}
+.layers svg{width:100%;height:auto;display:block}
+.layers ol{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.layers li{display:grid;grid-template-columns:30px minmax(0,1fr);gap:12px;align-items:start;font-weight:600;line-height:1.35}
+.layers li b{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:#121212;color:var(--ink);border:1.5px solid var(--ink);font:700 16px "Bai Jamjuree",sans-serif}
+.layers li i{display:block;font-style:normal;font-weight:400;font-size:14px;color:var(--mute)}
+.perksg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 28px;margin-top:28px}
+.ben{display:grid;grid-template-columns:32px minmax(0,1fr);column-gap:12px;align-items:start;padding:10px 0;border-top:1px solid var(--line)}.ben svg{grid-row:span 2}
+.ben svg{width:30px;height:30px;stroke:var(--acc);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.ben b{font:500 17px/1.3 "Bai Jamjuree",sans-serif}.ben i{font-style:normal;color:var(--mute);font-size:13px}
+.cfg{position:relative;border-radius:18px;overflow:hidden;margin:14px 0;aspect-ratio:4/3;background:#1b1a19}.cfg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .5s}.cfg #cfgB{opacity:0}.cfgtag{position:absolute;left:10px;bottom:10px;padding:4px 10px;border-radius:8px;background:rgba(18,18,18,.75);font-size:12px;color:#ddd}
+@media(max-width:800px){.layers>div:first-child{margin-inline:-14px}.layers{grid-template-columns:minmax(0,1fr)}.perksg{grid-template-columns:minmax(0,1fr)}}
+
+.instline{text-align:center;font:500 20px/1.4 "Bai Jamjuree",sans-serif}.instline b{color:var(--ink)}.instline span{display:block;font:400 15px "IBM Plex Sans Thai",sans-serif;color:var(--mute)}
+.inst{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:clamp(24px,5vw,64px);align-items:center}.instbox{display:grid;gap:6px;justify-items:start;padding:clamp(24px,4vw,40px);border-radius:24px;background:var(--panel);border:1.5px solid var(--acc)}.instbox strong{font:700 clamp(56px,8vw,88px)/1 "Bai Jamjuree",sans-serif;color:var(--acc)}.instbox span{color:var(--mute)}.instbox .btn{margin-top:14px;white-space:normal;text-align:center;min-height:52px}
+@media(max-width:800px){.inst{grid-template-columns:minmax(0,1fr)}}
+
+#colors{overflow:hidden}
+.fanbox{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:center;margin-top:28px}
+.fan{position:relative;height:340px;max-width:520px;width:100%;margin:0 auto}
+.blade{position:absolute;left:calc(50% - 30px);bottom:20px;width:60px;height:290px;border-radius:14px 14px 30px 30px;transform-origin:50% calc(100% - 30px);border:2px solid rgba(255,255,255,.14);cursor:pointer;transition:transform .35s cubic-bezier(.3,1.4,.5,1),box-shadow .2s;background-size:cover;background-position:center;padding:0}
+.blade:focus-visible{outline:3px solid var(--acc);outline-offset:3px}
+.blade.on{box-shadow:0 0 0 3px var(--acc),0 20px 40px -10px rgba(0,0,0,.8);z-index:9}
+.pin{position:absolute;left:calc(50% - 14px);bottom:40px;width:28px;height:28px;border-radius:50%;background:var(--acc);border:4px solid #121212;z-index:10}
+.pick h3{font-size:28px;font-weight:700}
+.chip{display:block;width:100%;height:170px;border-radius:16px;margin:16px 0;border:1px solid var(--line);background-size:cover;background-position:center}
+.pick h3 small{display:block;font:400 16px "IBM Plex Sans Thai",sans-serif;color:var(--mute);margin-top:4px}
+@media(max-width:800px){.fanbox{grid-template-columns:minmax(0,1fr)}.fan{height:300px}.blade{height:250px;width:46px;left:calc(50% - 23px)}}
+
+.cols{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:clamp(24px,5vw,72px);align-items:start}
+.note{color:var(--mute);margin-top:14px}
+table{width:100%;border-collapse:collapse}
+td{padding:15px 4px;border-bottom:1px solid var(--line);vertical-align:top}
+td:last-child{text-align:right;white-space:nowrap;font:600 19px "Bai Jamjuree",sans-serif}
+td small{display:block;color:var(--mute);font-size:13px}
+tr:first-child td:last-child{color:var(--ink);font-size:22px}
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:32px}
+.step{display:grid;grid-template-columns:44px minmax(0,1fr);column-gap:14px;align-items:center}.step b{grid-row:span 2;margin:0!important}
+.step b{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:#2a2826;color:var(--ink);border:1px solid #4a4642;font:700 20px "Bai Jamjuree",sans-serif;margin-bottom:16px}
+.step h3{font-size:18px;font-weight:500}
+.step p{margin:2px 0 0;color:var(--mute);font-size:15px}
+.big{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);border-radius:24px;overflow:hidden;background:var(--panel);border:1px solid var(--line)}
+.big img{width:100%;height:100%;min-height:300px;max-height:520px;object-fit:cover;display:block}
+.big div{padding:clamp(24px,4vw,52px);display:flex;flex-direction:column;justify-content:center;gap:16px}
+.big strong{font:700 clamp(40px,6vw,64px)/1 "Bai Jamjuree",sans-serif;color:var(--ink)}
+.contact{text-align:center}
+.contact .card{display:inline-grid;gap:18px;justify-items:center;margin-top:28px;padding:clamp(18px,4vw,32px);border-radius:24px;background:var(--panel);border:1px solid var(--line);min-width:min(100%,380px)}
+.qrimg{width:200px;height:200px;border-radius:14px;background:#fff;padding:8px}
+.qrs{display:flex;gap:14px;flex-wrap:nowrap;justify-content:center}.qcol{display:grid;gap:12px;justify-items:center}.qcol .qrimg{width:min(170px,36vw);height:auto;aspect-ratio:1}.qcol .btn{width:min(170px,36vw);padding:0 8px;justify-content:center}.btn.wa{background:#25d366;color:#fff}.btn.wa:hover{background:#1fb956}
+.wafab{position:fixed;right:16px;bottom:88px;z-index:20;width:60px;height:60px;border-radius:50%;background:#25d366;display:grid;place-items:center;box-shadow:0 10px 26px -6px rgba(0,0,0,.7);transition:transform .15s}.wafab:hover{transform:scale(1.07)}.wafab:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.btn.line{background:#06c755;color:#fff}.btn.line:hover{background:#05b04b}
+.qr{width:180px;height:180px;border-radius:14px;border:2px dashed #555;display:grid;place-items:center;color:var(--mute);font-size:14px;text-align:center;padding:12px}
+.contact p{margin:0}
+footer{padding:28px max(5vw,18px);border-top:1px solid var(--line);color:var(--mute);font-size:14px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+@media(max-width:800px){.cols,.big{grid-template-columns:minmax(0,1fr)}.steps{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:600px){nav .btn span{display:none}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.dots span{transition:none}}
+</style>
+</head>
+<body>
+<nav>
+  <a class="logo" href="#" aria-label="Samui Shingle Roof"><svg viewBox="0 0 64 48" width="44" height="33" aria-hidden="true"><path d="M4 30 L32 6 L60 30" fill="none" stroke="#c8642b" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 30 L32 15 L50 30 V44 H14Z" fill="#3a3a3d"/><path d="M18 31h28M18 36h28M18 41h28" stroke="#121212" stroke-width="2"/></svg><span>SAMUI<b>SHINGLE ROOF</b></span></a>
+  <div class="tabs" id="tabs">
+    <a href="#colors">สี<i>Colours</i></a><a href="#work">ผลงาน<i>Work</i></a><a href="#system">ระบบหลังคา<i>System</i></a><a href="#prices">ราคา<i>Prices</i></a><a href="#contact">ติดต่อ<i>Contact</i></a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap hgrid">
+    <div class="ha">
+    <h1>ชิงเกิ้ลรูฟ ราคาถูกที่สุดในเกาะสมุย<span class="en">The lowest shingle roof price on Koh Samui — delivered free to your site</span></h1>
+    <div class="price"><strong>769<em>฿</em></strong><span>ต่อแพ็ค / per pack</span></div>
+    </div>
+    <div class="hv" id="colors">
+    <div class="viz"><img id="cfgA" src="img/vcfg/rock-grey.jpg" alt="วิลล่าหลังคาชิงเกิ้ล ภาพจำลองสี / Villa with shingle roof, colour preview"><img id="cfgB" alt="" aria-hidden="true">
+      <div class="vizname"><b id="cname">Rock Grey</b><span id="cth">สีเทา</span></div></div>
+    <p class="hint"><span class="ck">●</span> แตะสีเพื่อดูภาพจำลองบนหลังคา · Tap a colour to preview</p>
+    <div class="dots9" id="dots9" role="radiogroup" aria-label="Roof colour"></div>
+    <div class="vizfoot"><span>ชิงเกิ้ล 2 ชั้น · 2.32 ตร.ม./ห่อ · ภาพจำลอง สีจริงอาจต่างเล็กน้อย<br>2-layer shingles · 2.32 m² per pack · Preview only, actual colour may vary</span><a class="btn ghost" href="https://line.me/ti/p/-pnsRf7mvr">สั่งสีนี้ · Order this colour</a></div>
+    </div>
+    <div class="hb">
+    <div class="perks">
+      <div class="perk"><span class="ck">✓</span> ส่งฟรีถึงหน้างาน<i>Free delivery</i></div>
+      <div class="perk"><span class="ck">✓</span> ส่งภายใน 72 ชม.<i>Within 72 hours</i></div>
+      <div class="perk"><span class="ck">✓</span> ขั้นต่ำ 100 ตร.ม.<i>Min. 100 m²</i></div>
+    </div>
+    <div class="match"><b>เจอถูกกว่า คืนส่วนต่าง!</b><small>Found it cheaper on Koh Samui? We refund the difference · สินค้าและจำนวนเดียวกัน</small></div>
+    <div class="row"><a class="btn" href="https://line.me/ti/p/-pnsRf7mvr">ขอใบเสนอราคาทาง LINE · Get a quote →</a></div>
+    </div>
+  </div>
+</header>
+
+
+
+<section class="band" id="work">
+  <div class="wrap">
+    <div class="gal-head">
+      <div>
+        <h2>จากโครงเหล็ก สู่หลังคาเสร็จ<span class="en">From steel frame to finished roof — a real Koh Samui build</span></h2>
+        <div class="count" id="count" hidden></div>
+      </div>
+      <div class="arrows"><button id="prev" aria-label="Previous photo">←</button><button id="next" aria-label="Next photo">→</button></div>
+    </div>
+    <div class="cf"><div class="track" id="track" tabindex="0" aria-label="Roof photo gallery"></div></div>
+    <div class="stepbar" id="dots"></div>
+  </div>
+</section>
+
+<section class="band" id="system">
+  <div class="wrap">
+    <h2>ระบบหลังคาชิงเกิ้ล ครบทุกชั้น<span class="en">How a shingle roof is built — we supply every layer from 2 to 7</span></h2>
+    <div class="layers"><div><svg viewBox="20 -45 640 450" role="img" aria-label="Shingle roof layers, cutaway"><defs>
+<pattern id="pw" width=".05" height=".07" patternUnits="userSpaceOnUse" patternTransform="matrix(430,-118,120,-176,60,323)"><rect width=".05" height=".07" fill="#d2b282"/><path d="M.005 .015h.018M.028 .04h.016M.008 .055h.012M.03 .012h.01" stroke="#b8945f" stroke-width=".004"/></pattern>
+<pattern id="pm" width="1" height=".125" patternUnits="userSpaceOnUse" patternTransform="matrix(430,-118,120,-176,60,316)"><rect width="1" height=".125" fill="#2a2c2f"/><rect y=".112" width="1" height=".013" fill="#3b3e42"/><path d="M0 .1h1" stroke="#cfd3d6" stroke-width=".003" stroke-dasharray=".015 .012"/></pattern>
+<pattern id="ps" width=".12" height=".14" patternUnits="userSpaceOnUse" patternTransform="matrix(430,-118,120,-176,60,302)"><rect width=".12" height=".14" fill="#2f3032"/><rect x=".002" y=".004" width=".056" height=".062" fill="#6e7073"/><rect x=".062" y=".004" width=".056" height=".062" fill="#5d5f62"/><rect x="-.028" y=".074" width=".056" height=".062" fill="#66686b"/><rect x=".032" y=".074" width=".056" height=".062" fill="#76787b"/><rect x=".092" y=".074" width=".056" height=".062" fill="#606265"/></pattern>
+</defs><line x1="60.0" y1="330.0" x2="180.0" y2="154.0" stroke="#7d8186" stroke-width="2.5"/><line x1="146.0" y1="306.4" x2="266.0" y2="130.4" stroke="#7d8186" stroke-width="2.5"/><line x1="232.0" y1="282.8" x2="352.0" y2="106.8" stroke="#7d8186" stroke-width="2.5"/><line x1="318.0" y1="259.2" x2="438.0" y2="83.2" stroke="#7d8186" stroke-width="2.5"/><line x1="404.0" y1="235.6" x2="524.0" y2="59.6" stroke="#7d8186" stroke-width="2.5"/><line x1="490.0" y1="212.0" x2="610.0" y2="36.0" stroke="#7d8186" stroke-width="2.5"/><line x1="90.1" y1="321.7" x2="210.1" y2="145.7" stroke="#7d8186" stroke-width="2.5"/><line x1="60.0" y1="330.0" x2="490.0" y2="212.0" stroke="#9a9ea3" stroke-width="4"/><line x1="84.0" y1="294.8" x2="514.0" y2="176.8" stroke="#9a9ea3" stroke-width="4"/><line x1="108.0" y1="259.6" x2="538.0" y2="141.6" stroke="#9a9ea3" stroke-width="4"/><line x1="132.0" y1="224.4" x2="562.0" y2="106.4" stroke="#9a9ea3" stroke-width="4"/><line x1="156.0" y1="189.2" x2="586.0" y2="71.2" stroke="#9a9ea3" stroke-width="4"/><line x1="180.0" y1="154.0" x2="610.0" y2="36.0" stroke="#9a9ea3" stroke-width="4"/><polygon points="120.2,306.5 240.2,130.5 240.2,137.5 120.2,313.5" fill="#9a7a4f"/><polygon points="120.2,306.5 490.0,205.0 490.0,212.0 120.2,313.5" fill="#a8875a"/><polygon points="120.2,306.5 490.0,205.0 610.0,29.0 240.2,130.5" fill="url(#pw)"/><polygon points="119.2,306.1 489.0,204.7 489.0,212.0 119.2,313.5" fill="#9fa3a7"/><polygon points="119.2,306.1 489.0,204.7 492.4,199.7 122.6,301.2" fill="#d9dcde"/><polygon points="193.2,274.4 309.0,104.6 309.0,108.8 193.2,278.6" fill="#232528"/><polygon points="193.2,274.4 494.2,191.8 494.2,196.0 193.2,278.6" fill="#1d1f21"/><polygon points="193.2,274.4 494.2,191.8 610.0,22.0 309.0,104.6" fill="url(#pm)"/><polygon points="279.2,243.8 288.2,230.6 288.2,236.2 279.2,249.4" fill="#303133"/><polygon points="279.2,243.8 494.2,184.8 494.2,190.4 279.2,249.4" fill="#2a2b2d"/><polygon points="279.2,243.8 494.2,184.8 503.2,171.6 288.2,230.6" fill="#8a8c8f"/><polygon points="288.2,223.6 395.0,67.0 395.0,74.0 288.2,230.6" fill="#46484b"/><polygon points="288.2,223.6 503.2,164.6 503.2,171.6 288.2,230.6" fill="#3f4144"/><polygon points="288.2,223.6 503.2,164.6 610.0,8.0 395.0,67.0" fill="url(#ps)"/><polygon points="389.0,66.0 399.8,50.2 399.8,60.0 389.0,75.8" fill="#404245"/><polygon points="389.0,66.0 604.0,7.0 604.0,16.8 389.0,75.8" fill="#3a3c3e"/><polygon points="389.0,66.0 604.0,7.0 614.8,-8.8 399.8,50.2" fill="#4a4c4f"/><circle cx="145.8" cy="234.9" r="17" fill="#121212" stroke="#f3eee6" stroke-width="1.8"/><text x="145.8" y="240.9" text-anchor="middle" font-family="Bai Jamjuree, sans-serif" font-weight="700" font-size="18" fill="#f3eee6">1</text><circle cx="216.3" cy="201.4" r="17" fill="#121212" stroke="#f3eee6" stroke-width="1.8"/><text x="216.3" y="207.4" text-anchor="middle" font-family="Bai Jamjuree, sans-serif" font-weight="700" font-size="18" fill="#f3eee6">2</text><line x1="163.2" y1="292.6" x2="163.2" y2="338.6" stroke="#f3eee6" stroke-width="1.2" opacity=".7"/><circle cx="163.2" cy="292.6" r="3.5" fill="#c8642b"/><circle cx="163.2" cy="338.6" r="17" fill="#121212" stroke="#f3eee6" stroke-width="1.8"/><text x="163.2" y="344.6" text-anchor="middle" font-family="Bai Jamjuree, sans-serif" font-weight="700" font-size="18" fill="#f3eee6">3</text><circle cx="304.0" cy="163.2" r="17" fill="#121212" stroke="#f3eee6" stroke-width="1.8"/><text x="304.0" y="169.2" text-anchor="middle" font-family="Bai Jamjuree, sans-serif" font-weight="700" font-size="18" fill="#f3eee6">4</text><line x1="326.4" y1="225.9" x2="326.4" y2="271.9" stroke="#f3eee6" stroke-width="1.2" opacity=".7"/><circle cx="326.4" cy="225.9" r="3.5" fill="#c8642b"/><circle cx="326.4" cy="271.9" r="17" fill="#121212" stroke="#f3eee6" stroke-width="1.8"/><text x="326.4" y="277.9" text-anchor="middle" font-family="Bai Jamjuree, sans-serif" font-weight="700" font-size="18" fill="#f3eee6">5</text><circle cx="461.4" cy="113.2" r="17" fill="#121212" stroke="#f3eee6" stroke-width="1.8"/><text x="461.4" y="119.2" text-anchor="middle" font-family="Bai Jamjuree, sans-serif" font-weight="700" font-size="18" fill="#f3eee6">6</text><line x1="532.6" y1="19.4" x2="558.6" y2="-10.6" stroke="#f3eee6" stroke-width="1.2" opacity=".7"/><circle cx="532.6" cy="19.4" r="3.5" fill="#c8642b"/><circle cx="558.6" cy="-10.6" r="17" fill="#121212" stroke="#f3eee6" stroke-width="1.8"/><text x="558.6" y="-5.6" text-anchor="middle" font-family="Bai Jamjuree, sans-serif" font-weight="700" font-size="18" fill="#f3eee6">7</text></svg></div><ol><li><b>1</b><span>โครงหลังคาเหล็ก<i>Steel roof frame — by your builder</i></span></li><li><b>2</b><span>ไม้ OSB กันชื้น 9 มม.<i>OSB moisture-resistant decking, 9 mm</i></span></li><li><b>3</b><span>เหล็กฉากกันน้ำย้อน (ขอบชายคา)<i>Drip edge — along the eave only</i></span></li><li><b>4</b><span>เมมเบรนกันซึม<i>Waterproof underlayment membrane</i></span></li><li><b>5</b><span>สตาร์ทเตอร์ (แถวแรกที่ชายคา)<i>Starter strip — first row at the eave</i></span></li><li><b>6</b><span>ชิงเกิ้ลรูฟ 2 ชั้น<i>2-layer asphalt shingles, 9 colours</i></span></li><li><b>7</b><span>ครอบสันหลังคา<i>Ridge cap</i></span></li></ol></div>
+    <div class="perksg"><div class="ben"><svg viewBox="0 0 24 24"><path d="M7 15a5 5 0 1 1 1.2-9.9A6 6 0 0 1 20 9a4 4 0 0 1-1 7.9H7z"/><path d="M8 19l-1 2M12 19l-1 2M16 19l-1 2"/></svg><b>ทนทุกสภาพอากาศ</b><i>Built for tropical rain</i></div><div class="ben"><svg viewBox="0 0 24 24"><path d="M3 8h11a3 3 0 1 0-3-3"/><path d="M3 12h16a3 3 0 1 1-3 3"/><path d="M3 16h7"/></svg><b>ทนแรงลม 140 กม./ชม.</b><i>Wind resistant to 140 km/h</i></div><div class="ben"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><b>ระบายความร้อนได้เร็ว</b><i>Releases heat fast</i></div><div class="ben"><svg viewBox="0 0 24 24"><path d="M20 4c-8 0-14 6-14 14v2h2c8 0 12-6 12-16z"/><path d="M6 18L14 10"/></svg><b>น้ำหนักเบา 29 กก./ห่อ</b><i>Lightweight, 29 kg per pack</i></div><div class="ben"><svg viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M17 9l4 6M21 9l-4 6"/></svg><b>ลดเสียงฝนตกกระทบ</b><i>Quiet in heavy rain</i></div><div class="ben"><svg viewBox="0 0 24 24"><path d="M3 18c4-10 14-10 18 0"/><path d="M3 18h18"/></svg><b>ดัดโค้งตามทรงหลังคาได้</b><i>Bends to any roof shape</i></div></div>
+    <p class="note" style="font-size:13px">คุณสมบัติตามข้อมูลผู้ผลิต · As stated by the manufacturer</p>
+  </div>
+</section>
+
+
+
+<section class="band alt" id="prices">
+  <div class="wrap cols">
+    <div>
+      <h2>ครบชุดในออเดอร์เดียว<span class="en">The complete roof system in one order, one delivery</span></h2>
+      <p class="note">ราคายังไม่รวม VAT 7% · Prices exclude 7% VAT<br>ส่งฟรีถึงหน้างานบนเกาะสมุย · Free delivery anywhere on Koh Samui</p>
+    </div>
+    <table>
+      <tbody>
+        <tr><td>ชิงเกิ้ลรูฟ 2 ชั้น · 9 สี<small>2-layer asphalt shingles · 2.32 m² per pack</small></td><td>769 ฿ / แพ็ค</td></tr>
+        <tr><td>ไม้ OSB กันชื้น 9 มม. 1.22×2.44 ม.<small>OSB board 9 mm</small></td><td>440 ฿ / แผ่น</td></tr>
+        <tr><td>เมมเบรนรองหลังคา 20 ตร.ม.<small>Underlayment membrane, 20 m² roll</small></td><td>2,800 ฿ / ม้วน</td></tr>
+        <tr><td>สตาร์ทเตอร์ 21 ชิ้น/แพ็ค<small>Starter strip</small></td><td>620 ฿ / แพ็ค</td></tr>
+        <tr><td>เหล็กฉากกันน้ำย้อน 3 ม.<small>Drip edge, 3 m</small></td><td>160 ฿ / เส้น</td></tr>
+        <tr><td>ลูกแม็กสแตนเลส 304<small>Stainless staples, box of 5,000</small></td><td>400 ฿ / กล่อง</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="band" id="how">
+  <div class="wrap">
+    <h2>สั่งง่าย 3 ขั้นตอน<span class="en">Order in 3 steps</span></h2>
+    <div class="steps">
+      <div class="step"><b>1</b><h3>ส่งขนาดหลังคามาทาง LINE</h3><p>Send us your roof size in m²</p></div>
+      <div class="step"><b>2</b><h3>รับใบเสนอราคาภายในไม่กี่ชั่วโมง</h3><p>Get a full quote within hours</p></div>
+      <div class="step"><b>3</b><h3>รับของที่หน้างานภายใน 72 ชม.</h3><p>Receive everything at your site within 72 hours</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="install" style="padding-block:28px">
+  <div class="wrap instline">มีบริการติดตั้ง เริ่มต้น <b>150฿/ตร.ม.</b><span>Installation available from <b>150฿/m²</b></span></div>
+</section>
+
+<section class="band alt">
+  <div class="wrap big">
+    <img src="img/big.jpg" alt="หลังคาชิงเกิ้ลขนาดใหญ่บนเกาะสมุย / Large shingle roof on Koh Samui">
+    <div>
+      <strong>500+ ตร.ม.</strong>
+      <h2>โครงการใหญ่ ราคาพิเศษ<span class="en">Projects over 500 m² get special pricing</span></h2>
+      <p class="note">วิลล่า รีสอร์ท อาคารพาณิชย์ — สอบถามราคาโครงการได้เลย<br>Villas, resorts, commercial buildings — ask for a project price.</p>
+      <div><a class="btn" href="https://line.me/ti/p/-pnsRf7mvr" style="white-space:normal;text-align:center;padding-block:10px">สอบถามราคาโครงการ · Project price</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="band contact" id="contact">
+  <div class="wrap">
+    <h2>สั่งซื้อทาง LINE / WhatsApp<span class="en">Order on LINE or WhatsApp</span></h2>
+    <div class="card">
+      <div class="qrs">
+        <div class="qcol"><a href="https://line.me/ti/p/-pnsRf7mvr" aria-label="Add us on LINE"><img class="qrimg" src="img/line-qr.png" alt="LINE QR code" width="200" height="200"></a><a class="btn line" href="https://line.me/ti/p/-pnsRf7mvr">LINE</a></div>
+        <div class="qcol"><a href="https://wa.me/message/L4ZFOTGJVSHLE1" aria-label="Chat on WhatsApp"><img class="qrimg" src="img/wa-qr.png" alt="WhatsApp QR code" width="200" height="200"></a><a class="btn wa" href="https://wa.me/message/L4ZFOTGJVSHLE1">WhatsApp</a></div>
+      </div>
+      <p class="note" style="margin:0">สแกน QR หรือกดปุ่ม · Scan or tap</p>
+      <p><strong>โทร / Tel:</strong> <a href="tel:+66621190553">062-119-0553</a></p>
+      <p class="note">เกาะสมุย สุราษฎร์ธานี · Koh Samui, Surat Thani</p>
+    </div>
+  </div>
+</section>
+
+<a class="wafab" href="https://wa.me/message/L4ZFOTGJVSHLE1" aria-label="Chat with us on WhatsApp"><svg viewBox="0 0 32 32" width="30" height="30" aria-hidden="true"><path fill="#fff" d="M16 3.2A12.7 12.7 0 0 0 5.1 22.4L3.3 28.8l6.6-1.7A12.7 12.7 0 1 0 16 3.2zm0 23.2a10.5 10.5 0 0 1-5.4-1.5l-.4-.2-3.9 1 1-3.8-.3-.4A10.5 10.5 0 1 1 16 26.4zm5.8-7.9c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7.1a8.6 8.6 0 0 1-4.3-3.7c-.3-.6.3-.5.9-1.7.1-.2 0-.4 0-.5l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.9.4 3.7 3.7 0 0 0-1.1 2.7 6.5 6.5 0 0 0 1.3 3.4 14.6 14.6 0 0 0 5.6 5c2.1.9 2.9 1 4 .8a3.3 3.3 0 0 0 2.2-1.5 2.7 2.7 0 0 0 .2-1.5c-.1-.1-.3-.2-.6-.3z"/></svg></a>
+<a class="linefab" href="https://line.me/ti/p/-pnsRf7mvr" aria-label="Chat with us on LINE"><img src="img/line-icon.png" alt="" width="60" height="60"></a>
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Photo"><img id="lbimg" alt=""><button class="x" id="lbx" aria-label="Close">✕</button><button class="lp" id="lbp" aria-label="Previous">←</button><button class="ln" id="lbn" aria-label="Next">→</button></div>
+<footer><span>Samui Shingle Roof</span><span>ส่งฟรี · ภายใน 72 ชม. · ขั้นต่ำ 100 ตร.ม.</span></footer>
+
+<script>
+{
+const photos=[
+ ['frame','โครงหลังคาเหล็ก พร้อมปูไม้ OSB','Steel frame, OSB boards going on','โครง · Frame'],
+ ['r9','หลังคาชิงเกิ้ลเสร็จสมบูรณ์','Finished shingle roof','งานเสร็จ · Done'],
+ ['r6','ม้วนเมมเบรนทีละแถว','Rolling out the membrane','เมมเบรน · Membrane'],
+ ['r10','เมมเบรนเต็มพื้นที่','Large roof, fully membraned','เมมเบรน · Membrane'],
+ ['r7','ปูชิงเกิ้ลต่อจากเมมเบรน','Shingles going on over the membrane','ชิงเกิ้ล · Shingles'],
+ ['r3','ชิงเกิ้ลพร้อมติดตั้ง','Shingle packs ready on the roof','ชิงเกิ้ล · Shingles'],
+ ['r2','ปูชิงเกิ้ลต่อจากเมมเบรน','Shingles going on','ชิงเกิ้ล · Shingles'],
+ ['r4','ขอบหลังคาและรางน้ำ','Clean edges and gutter line','งานเสร็จ · Done']
+];
+const track=document.getElementById('track'),dots=document.getElementById('dots');
+track.innerHTML=photos.map(p=>`<figure class="slide"><img src="img/${p[0]}.jpg" alt="${p[2]}" loading="lazy"><figcaption><span class="stage">${p[3]}</span><br>${p[1]}<i>${p[2]}</i></figcaption></figure>`).join('');
+dots.innerHTML=photos.map(()=>'<span></span>').join('');
+const slides=[...track.children],ds=[...dots.children];let cur=-1,timer=null,paused=false;
+const rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+function mark(i){if(i===cur)return;cur=i;slides.forEach((s,k)=>s.classList.toggle('on',k===i));ds.forEach((d,k)=>{d.classList.toggle('done',k<i);d.classList.remove('on');if(k===i){void d.offsetWidth;d.classList.add('on')}})}
+function go(i){i=(i+slides.length)%slides.length;const s=slides[i];track.scrollTo({left:s.offsetLeft-(track.clientWidth-s.clientWidth)/2,behavior:rm?'auto':'smooth'});mark(i)}
+function auto(){clearInterval(timer);if(!rm&&!paused)timer=setInterval(()=>go(cur+1),4500)}
+document.getElementById('prev').onclick=()=>{go(cur-1);auto()};
+document.getElementById('next').onclick=()=>{go(cur+1);auto()};
+track.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){e.preventDefault();go(cur+1)}if(e.key==='ArrowLeft'){e.preventDefault();go(cur-1)}});
+let t;track.addEventListener('scroll',()=>{clearTimeout(t);t=setTimeout(()=>{const c=track.scrollLeft+track.clientWidth/2;let best=0,bd=1e9;slides.forEach((s,k)=>{const d=Math.abs(s.offsetLeft+s.clientWidth/2-c);if(d<bd){bd=d;best=k}});mark(best)},60)});
+['pointerdown','touchstart'].forEach(ev=>track.addEventListener(ev,()=>{paused=true;clearInterval(timer)},{passive:true}));
+ds.forEach((d,k)=>d.onclick=()=>{go(k);auto()});
+const lb=document.getElementById('lb'),lbimg=document.getElementById('lbimg');let li=0;
+function lbShow(k){li=(k+photos.length)%photos.length;lbimg.src=`img/${photos[li][0]}.jpg`;lbimg.alt=photos[li][2]}
+function lbOpen(k){lbShow(k);lb.classList.add('open');paused=true;clearInterval(timer);document.getElementById('lbx').focus()}
+function lbClose(){lb.classList.remove('open');go(li)}
+document.getElementById('lbx').onclick=lbClose;document.getElementById('lbp').onclick=e=>{e.stopPropagation();lbShow(li-1)};document.getElementById('lbn').onclick=e=>{e.stopPropagation();lbShow(li+1)};
+lb.addEventListener('click',e=>{if(e.target===lb)lbClose()});
+document.addEventListener('keydown',e=>{if(!lb.classList.contains('open'))return;if(e.key==='Escape')lbClose();if(e.key==='ArrowRight')lbShow(li+1);if(e.key==='ArrowLeft')lbShow(li-1)});
+let sx=null;lbimg.addEventListener('touchstart',e=>{sx=e.touches[0].clientX},{passive:true});lbimg.addEventListener('touchend',e=>{if(sx===null)return;const dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>40)lbShow(li+(dx<0?1:-1));sx=null});
+slides.forEach((s,k)=>s.onclick=()=>{if(k!==cur){go(k);auto()}else lbOpen(k)});
+new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)auto();else clearInterval(timer)})}).observe(track);
+requestAnimationFrame(()=>go(0));
+// mark English text
+{const re=/[A-Za-z][A-Za-z0-9\s,.'’&()\/+:!?²%—–-]*[A-Za-z0-9.²)!?]|[A-Za-z]/g;const skip=new Set(['SCRIPT','STYLE','svg','SVG','TEXT']);
+const w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,{acceptNode:n=>{let p=n.parentElement;if(!p||p.closest('.logo,svg,script,style,.lat,.price,#lb,.vizname b,.btn,.stage'))return NodeFilter.FILTER_REJECT;return /[A-Za-z]/.test(n.nodeValue)&&/[฀-๿]/.test((p.closest('h1,h2,h3,li,p,td,a,figcaption,div,button,span')||p).textContent)?NodeFilter.FILTER_ACCEPT:NodeFilter.FILTER_REJECT}});
+const ns=[];while(w.nextNode())ns.push(w.currentNode);
+ns.forEach(n=>{const t=n.nodeValue;re.lastIndex=0;if(!re.test(t))return;re.lastIndex=0;const f=document.createDocumentFragment();let last=0,m;while((m=re.exec(t))){f.append(t.slice(last,m.index));const sp=document.createElement('span');sp.className='lat';sp.textContent=m[0];f.append(sp);last=m.index+m[0].length}f.append(t.slice(last));n.replaceWith(f)});}
+// tabs highlight
+const tabs=[...document.querySelectorAll('#tabs a')];
+const secObs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){tabs.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id))}})},{rootMargin:'-40% 0px -55% 0px'});
+tabs.forEach(a=>{const el=document.querySelector(a.getAttribute('href'));if(el)secObs.observe(el)});
+
+const cols=[['rock-grey','สีเทา','Rock Grey'],['dove-grey','สีเทานกพิราบ','Dove Grey'],['charcoal','สีดำ','Charcoal'],['timber-brown','สีน้ำตาลเข้ม','Timber Brown'],['golden-sand','สีน้ำตาลอ่อน','Golden Sand'],['sky-blue','สีน้ำเงิน','Sky Blue'],['moss-green','สีเขียว','Moss Green'],['snow','สีเทาอ่อน','Snow'],['sandstone','สีแดงอิฐ','Sandstone']];
+const d9=document.getElementById('dots9');
+d9.innerHTML=cols.map((c,i)=>`<button class="sw" role="radio" aria-checked="false" data-i="${i}"><i style="background-image:url(img/c/${c[0]}.jpg)"></i>${c[2]}</button>`).join('');
+const sws=[...d9.children];let top='A';
+cols.forEach(c=>{const im=new Image();im.src=`img/vcfg/${c[0]}.jpg`});
+function swap(n){const A=document.getElementById('cfgA'),B=document.getElementById('cfgB');const show=top==='A'?B:A,hide=top==='A'?A:B,src=`img/vcfg/${n}.jpg`;if(hide.getAttribute('src')===src)return;show.onload=()=>{show.style.opacity=1;hide.style.opacity=0;top=top==='A'?'B':'A'};show.src=src}
+function pick(i,user){sws.forEach((b,k)=>b.setAttribute('aria-checked',k===i));if(user){const b=sws[i];d9.scrollTo({left:b.offsetLeft-(d9.clientWidth-b.clientWidth)/2,behavior:'smooth'})}document.getElementById('cname').textContent=cols[i][2];document.getElementById('cth').textContent=cols[i][1];swap(cols[i][0])}
+sws.forEach((b,k)=>{b.onclick=()=>pick(k,1);b.onkeydown=e=>{if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();const n=(k+(e.key==='ArrowRight'?1:-1)+sws.length)%sws.length;sws[n].focus();pick(n,1)}}});
+pick(0);
+}
+</script>
+</body>
+</html>
