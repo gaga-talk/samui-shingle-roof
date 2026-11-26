@@ -69,6 +69,13 @@ nav .btn{min-height:42px;padding:0 18px;font-size:15px}
 .dots{display:flex;gap:6px;justify-content:center;margin-top:10px}
 .dots span{width:7px;height:7px;border-radius:50%;background:#3a3a3a;transition:.2s}.dots span.on{background:var(--hi);width:22px;border-radius:4px}
 .alt{background:#111}
+.viz{touch-action:pan-y;cursor:grab;user-select:none}
+.vnav{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;border:0;background:rgba(18,18,18,.6);color:#fff;font:400 30px/1 Inter,sans-serif;cursor:pointer;z-index:2}
+.vp{left:10px}.vn{right:10px}.vnav:hover{background:rgba(18,18,18,.85)}
+.vswipe{position:absolute;left:50%;bottom:14px;transform:translateX(-50%);padding:6px 14px;border-radius:999px;background:rgba(18,18,18,.7);font-size:13px;color:#f3eee6;white-space:nowrap;z-index:2;transition:opacity .4s;animation:nudge 1.6s ease-in-out 3}
+@keyframes nudge{0%,100%{transform:translateX(-50%)}50%{transform:translateX(calc(-50% + 10px))}}
+@media(prefers-reduced-motion:reduce){.vswipe{animation:none}}
+
 .free{display:inline-flex;align-items:center;gap:14px;margin-top:18px;padding:12px 18px;border-radius:14px;background:rgba(200,100,43,.14);border:1.5px solid var(--acc)}.free svg{width:38px;height:38px;flex:none;fill:none;stroke:var(--acc);stroke-width:1.8;stroke-linejoin:round}.free b{display:block;font:700 clamp(22px,2.6vw,28px)/1.15 "Bai Jamjuree",sans-serif;color:var(--ink)}.free span{display:block;font:700 clamp(16px,1.8vw,19px)/1.2 Inter,sans-serif;color:var(--en);letter-spacing:.02em}
 
 .chosen{margin:0;padding:10px 16px;border-radius:12px;background:#1f1d1b;border:1px solid var(--line);font-weight:600}.chosen b{color:var(--acc)}
@@ -197,7 +204,7 @@ footer{padding:28px max(5vw,18px);border-top:1px solid var(--line);color:var(--m
     <div class="price"><strong>769<em>฿</em></strong><span>ต่อแพ็ค / per pack</span></div>
     </div>
     <div class="hv" id="colors">
-    <div class="viz"><img id="cfgA" src="img/vcfg/rock-grey.jpg" alt="วิลล่าหลังคาชิงเกิ้ล ภาพจำลองสี / Villa with shingle roof, colour preview"><img id="cfgB" alt="" aria-hidden="true">
+    <div class="viz"><img id="cfgA" src="img/vcfg/rock-grey.jpg" alt="วิลล่าหลังคาชิงเกิ้ล ภาพจำลองสี / Villa with shingle roof, colour preview"><img id="cfgB" alt="" aria-hidden="true"><button class="vnav vp" id="vp" aria-label="Previous colour">‹</button><button class="vnav vn" id="vn" aria-label="Next colour">›</button><div class="vswipe" id="vswipe">‹ เลื่อนเพื่อเปลี่ยนสี · Swipe ›</div>
       <div class="vizname"><b id="cname">Rock Grey</b><span id="cth">สีเทา</span></div></div>
     <p class="hint"><span class="ck">●</span> แตะสีเพื่อดูภาพจำลองบนหลังคา · Tap a colour to preview</p>
     <div class="dots9" id="dots9" role="radiogroup" aria-label="Roof colour"></div>
@@ -370,6 +377,13 @@ function swap(n){const A=document.getElementById('cfgA'),B=document.getElementBy
 function pick(i,user){sws.forEach((b,k)=>b.setAttribute('aria-checked',k===i));if(user){const b=sws[i];d9.scrollTo({left:b.offsetLeft-(d9.clientWidth-b.clientWidth)/2,behavior:'smooth'})}document.getElementById('cname').textContent=cols[i][2];document.getElementById('cth').textContent=cols[i][1];swap(cols[i][0])}
 sws.forEach((b,k)=>{b.onclick=()=>pick(k,1);b.onkeydown=e=>{if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();const n=(k+(e.key==='ArrowRight'?1:-1)+sws.length)%sws.length;sws[n].focus();pick(n,1)}}});
 pick(0);
+{let ci=0;const _p=pick;pick=function(i,u){ci=i;_p(i,u)};
+const v=document.querySelector('.viz'),hint=document.getElementById('vswipe');
+const step=d=>{pick((ci+d+cols.length)%cols.length,1);if(hint)hint.style.opacity=0};
+document.getElementById('vp').onclick=e=>{e.stopPropagation();step(-1)};document.getElementById('vn').onclick=e=>{e.stopPropagation();step(1)};
+let x0=null,y0=0;v.addEventListener('pointerdown',e=>{if(e.target.closest('.vnav'))return;x0=e.clientX;y0=e.clientY});
+v.addEventListener('pointerup',e=>{if(x0===null)return;const dx=e.clientX-x0,dy=e.clientY-y0;x0=null;if(Math.abs(dx)>35&&Math.abs(dx)>Math.abs(dy))step(dx<0?1:-1)});
+v.addEventListener('pointercancel',()=>{x0=null});}
 }
 </script>
 </body>
